@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #041f77;
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+            transition: color 0.3s, font-size 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fbff00;
+            font-size: 1.2rem;
+        }
+
+        .left {
+            font-size: 1.8rem;
+        }
+
+        .firstSection {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 4rem 2rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .leftSection {
+            flex: 1 1 40%;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .leftSection .button {
+            margin-top: 2rem;
+        }
+
+        .leftSection .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #ffffff;
+            color: rgb(254, 255, 255);
+            border: 5px solid #7b00ff;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-right: 1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .leftSection .btn:hover {
+            background-color: #00ffff;
+            transform: scale(1.05);
+        }
+
+        .rightSection img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .purple {
+            color: #a200ff;
+        }
+
+        #element {
+            color: rgb(162, 0, 255);
+        }
+
+        main hr {
+            border: none;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 2rem auto;
+            max-width: 80%;
+        }
+
+        .secondSection {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .secondSection h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .secondSection .text-grey {
+            color: grey;
+            margin-bottom: 1rem;
+        }
+
+        .work-experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-experience .box {
+            padding: 2rem;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .work-experience .box:hover {
+            transform: scale(1.03);
+            background-color: #ffffff;
+            color: #000;
+        }
+
+        .work-experience .box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 1rem;
+        }
+
+        .work-experience .box .vertical-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-experience .box .vertical-desc {
+            color: grey;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .skillsSection {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skillsSection h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            margin-top: 70px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            justify-items: center;
+            margin-top: 1rem;
+        }
+
+        .skill-box {
+            background-color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-box h3 {
+            color: #782de2;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-box p {
+            color: #ff004c;
+        }
+
+         /* Styles for the non-technical skills section */
+         .non-tech-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 19px;
+            margin-top: 27px;
+        }
+
+        .non-tech-skill {
+            background: #f4f4f4;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .non-tech-skill:hover {
+            transform: scale(1.09);
+            background-color: #fff200;
+        }
+
+        .non-tech-skill h4 {
+            margin: 0;
+            font-size: 1.09rem;
+            color: #333;
+        }
+
+        .projectsSection {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projectsSection h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            margin-top: 1rem;
+        }
+
+        .project-box {
+            background-color: #761beb;
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .project-box:hover {
+            transform: translateY(-9px);
+        }
+
+        .project-box img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .project-box h3 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-box p {
+            color: #78ebf8;
+        }
+
+        footer {
+            background-color: #0e0e1a;
+            padding: 2rem 0;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer div {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer ul li a {
+            text-decoration: none;
+            color: grey;
+        }
+
+        .footer-rights {
+            text-align: center;
+            color: grey;
+            padding: 1rem 0;
+            border-top: 1px solid #333;
+        }
+
+        #contact {
+            padding: 2rem 0;
+        }
+
+        #contact h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1rem;
+            background: #222;
+            border-radius: 10px;
+        }
+
+        form label {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        form input,
+        form textarea {
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: #fff;
+        }
+
+        form button {
+            padding: 0.75rem;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .firstSection {
+                flex-direction: column;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+</style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">Radha's Portfolio</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="firstSection" id="home">
+            <div class="leftSection">
+                <div>Hi, My name is <span class="purple">Radha</span></div>
+                <div>and I am a Passionate</div>
+                <div>Krishna Lover</div>
+                <span id="element"></span>
+                <div class="button">
+                    <!-- Download Resume button with redirecting link -->
+                    <button class="btn"><a href="resume.pdf" target="_blank">Download Resume</a></button>
+                    <!-- Visit Github button with redirecting link -->
+                    <button class="btn"><a href="https://github.com/your_username" target="_blank">Visit Github</a></button>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="a.jpg" alt="Profile Picture">
+            </div>
+        </section>
+        <section id="about">
+            <hr>
+            <div class="secondSection">
+                <div class="text-grey">What I have done so far</div>
+                <h1>Work Experience</h1>
+                <div class="work-experience">
+                    <div class="box">
+                        <img src="developer.jpg" alt="Developer">
+                        <div class="vertical-title">HTML Developer- Pinterest <span>(2010-2012)</span></div>
+                        <div class="vertical-desc"> Create innovate and unique website layouts and use Cascading Style Sheets (CSS) to create responsive web pages, Integrate with Back-end systems.</div>
+                    </div>
+                    <div class="box">
+                        <img src="facebook.jpg" alt="Facebook">
+                        <div class="vertical-title">Node.js Developer- Facebook <span>(2012-2014)</span></div>
+                        <div class="vertical-desc">Writing server-side web application logic in JavaScript and develop back-end components, connect the application with the other web services.</div>
+                    </div>
+                    <div class="box">
+                        <img src="youtube.jpg" alt="YouTube">
+                        <div class="vertical-title">Software Developer- YouTube <span>(2017-2024)</span></div>
+                        <div class="vertical-desc">I work closely with clients to determine what they need and work on it by critical thinking skills and strong
+                            problem-solving abilities.</div>
+                    </div>
+                    <div class="box">
+                        <img src="inst.jpg" alt="Instagram">
+                        <div class="vertical-title">HTML Developer- Instagram <span>(2014-2015)</span></div>
+                        <div class="vertical-desc">Code websites, Ensure cross-platform functionality, Implement CSS,
+                            Collaborate with designers, Provide support to website users, Test Websites and Integeate
+                            with Back-end Systems</div>
+                    </div>
+                    <div class="box">
+                        <img src="twitter.jpg" alt="Twitter">
+                        <div class="vertical-title">HTML Developer- Twitter <span>(2015-2016)</span></div>
+                        <div class="vertical-desc"> Coding for websites, Creates mockups and produces CSS code,
+                            Collaborate with web designers and back-end web developers.</div>
+                    </div>
+                    <div class="box">
+                        <img src="facebook.jpg" alt="Facebook">
+                        <div class="vertical-title">HTML Developer- Facebook <span>(2016-2017)</span></div>
+                        <div class="vertical-desc">Creating HTML prototypes, coding, testing, debugging, designing
+                            website layout, updating website, and creating and improving applications.</div>
+                </div>
+            </div>
+        </section>
+        <section id="skills">
+            <hr>
+            <div class="skillsSection">
+                <h1>Technical-Skills</h1>
+                <div class="skills-grid">
+                    <div class="skill-box">
+                        <h3>HTML</h3>
+                        <p>Advanced</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>CSS</h3>
+                        <p>Advanced</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>JavaScript</h3>
+                        <p>Intermediate</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>SQL</h3>
+                        <p>Advanced</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Python</h3>
+                        <p>Advanced</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>React</h3>
+                        <p>Intermediate</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Node.js</h3>
+                        <p>Intermediate</p>
+                    </div>
+                    <div class="skill-box">
+                        <h3>Java</h3>
+                        <p>Intermediate</p>
+                    </div>
+                </div>
+                <h1>Non-Technical Skills</h1>
+                <div class="non-tech-skills">
+                    <div class="non-tech-skill"><h4>Communication Skills</h4></div>
+                    <div class="non-tech-skill"><h4>Creativity</h4></div>
+                    <div class="non-tech-skill"><h4>Adaptability</h4></div>
+                    <div class="non-tech-skill"><h4>Organization</h4></div>
+                    <div class="non-tech-skill"><h4>Active</h4></div>
+                    <div class="non-tech-skill"><h4>Time Management</h4></div>
+                    <div class="non-tech-skill"><h4>Cooperation</h4></div>
+                    <div class="non-tech-skill"><h4>Collaboration</h4></div>
+                    <div class="non-tech-skill"><h4>Responsibility</h4></div>
+                    <div class="non-tech-skill"><h4>Attention</h4></div>
+                    <div class="non-tech-skill"><h4>Leadership Skills</h4></div>
+                    <div class="non-tech-skill"><h4>Flexibility</h4></div>
+                    <div class="non-tech-skill"><h4>Research Skills</h4></div>
+                    <div class="non-tech-skill"><h4>Multitasking</h4></div>
+                </div>
+        </section>
+        <section id="projects">
+            <hr>
+            <div class="projectsSection">
+                <h1>Projects</h1>
+                <div class="projects-grid">
+                    <div class="project-box">
+                        <img src="project1.jpg" alt="Project 1">
+                        <h3>Portfolio Website</h3>
+                        <p>A responsive portfolio website showcasing skills and projects.</p>
+                    </div>
+                    <div class="project-box">
+                        <img src="project2.jpg" alt="Project 2">
+                        <h3>E-commerce Platform</h3>
+                        <p>Developed an e-commerce platform using React and Node.js.</p>
+                    </div>
+                    <div class="project-box">
+                        <img src="project3.jpg" alt="Project 3">
+                        <h3>Blog Website</h3>
+                        <p>Created a blog website with user authentication using Django.</p>
+                    </div>
+                    <div class="project-box">
+                        <img src="project4.jpg" alt="Project 4">
+                        <h3>Weather App</h3>
+                        <p>Designed a weather application using HTML, CSS, and JavaScript.</p>
+                    </div>
+                    <div class="project-box">
+                        <img src="youtube.jpg" alt="Project 5">
+                        <h3>Youtube Clone</h3>
+                        <p>Designed a web application which allows users to browse, search, and view videos which is similar to YouTube.</p>
+                    </div>
+                    <div class="project-box">
+                        <img src="project6.jpg" alt="Project 6">
+                        <h3>Amazon Clone</h3>
+                        <p>The Amazon Clone Project, crafted with HTML and CSS, closely mirrors the essential features of Amazon's website.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h1>Contact</h1>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div>
+                <h3>Radha's Developer Portfolio</h3>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-rights">
+            Copyright &#169; radha'sportfolio.com | All rights reserved
+        </div>
+    </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Graphic Designer', 'Web Designer', 'Video Editor'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true
+        });
+    </script>
+</body>
+</html>
